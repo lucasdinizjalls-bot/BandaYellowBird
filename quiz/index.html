@@ -26,11 +26,13 @@ window.YB_CONFIG = {
   PIXEL_ID: "760678064699760",
   CLARITY_ID: "ysmy8vcnrn"
 };
+/* Modo teste: abra com ?teste=1 para testar sem disparar o Pixel. O lead entra marcado como [TESTE]. */
+window.YB_TEST = /[?&]teste=1\b/.test(location.search);
 </script>
 
 <!-- Meta Pixel -->
 <script>
-if(!window.__ybPixelLoaded){window.__ybPixelLoaded=true;
+if(!window.YB_TEST && !window.__ybPixelLoaded){window.__ybPixelLoaded=true;
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
 n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
@@ -310,7 +312,7 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     sent = true; send.disabled = true; send.textContent = 'Enviando...';
 
     var payload = {
-      nome: nome.value.trim(),
+      nome: (window.YB_TEST ? '[TESTE] ' : '') + nome.value.trim(),
       whatsapp: tel,
       quando: answers.quando || '',
       data: dataInp.value || '',
@@ -327,7 +329,7 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 
     // Pixel: Lead para todos, LeadQualificado para faixas A e B
     try {
-      if (window.fbq){
+      if (window.fbq && !window.YB_TEST){
         fbq('track', 'Lead', { content_name: 'Quiz Yellowbird', faixa: payload.faixa }, { eventID: eventId });
         if (payload.faixa === 'A' || payload.faixa === 'B') fbq('trackCustom', 'LeadQualificado', { faixa: payload.faixa }, { eventID: eventId + 'q' });
       }
