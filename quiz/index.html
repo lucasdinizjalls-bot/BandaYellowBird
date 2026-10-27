@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Monte a trilha da sua festa | Yellowbird – Banda para Casamento no RJ</title>
+<meta name="description" content="Responda 6 perguntas rápidas e receba uma proposta da Yellowbird pensada para a sua festa de casamento no Rio.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://bandayellowbird.com.br/quiz/">
+<meta property="og:title" content="Monte a trilha da sua festa | Yellowbird">
+<meta property="og:description" content="6 perguntas rápidas para a Yellowbird preparar uma proposta para o seu casamento.">
+<meta property="og:image" content="https://bandayellowbird.com.br/og-yellowbird.jpg">
+<meta property="og:url" content="https://bandayellowbird.com.br/quiz/">
+<meta name="theme-color" content="#14110D">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+
+<script>
+/* ===== CONFIGURAÇÃO =====
+   ENDPOINT: o link do Apps Script (termina em /exec). Enquanto estiver vazio,
+   o quiz funciona, mas as respostas não são gravadas na planilha. */
+window.YB_CONFIG = {
+  ENDPOINT: "https://script.google.com/macros/s/AKfycbwiiqC0NSOAgmL33ot_Yq3sOrALP0jSvr-zn0cw9t0WeOB9Se352ESZtPlqIn_dXd7M2g/exec",
+  WHATSAPP: "5521982311057",
+  PIXEL_ID: "760678064699760",
+  CLARITY_ID: "ysmy8vcnrn"
+};
+</script>
+
+<!-- Meta Pixel -->
+<script>
+if(!window.__ybPixelLoaded){window.__ybPixelLoaded=true;
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', window.YB_CONFIG.PIXEL_ID);
+fbq('track', 'PageView');}
+</script>
+<!-- Microsoft Clarity -->
+<script>
+if(!window.__ybClarityLoaded){window.__ybClarityLoaded=true;
+(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", window.YB_CONFIG.CLARITY_ID);}
+</script>
+
+<style>
+  :root{
+    --bg:#14110D; --bg2:#1B1712; --card:#241E17; --line:#3A3226;
+    --gold:#F2C230; --gold-dark:#8A6A00; --cream:#F6F2EA; --soft:#DCD5C7; --muted:#A79D8B;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--cream)}
+  body{font-family:Archivo,Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%;min-height:100vh;min-height:100dvh}
+  .bgimg{position:fixed;inset:0;background:url(hero.webp) center/cover no-repeat;opacity:.28;filter:saturate(.8)}
+  .bgfade{position:fixed;inset:0;background:linear-gradient(180deg,rgba(20,17,13,.55) 0%,rgba(20,17,13,.85) 45%,#14110D 100%)}
+  .wrap{position:relative;max-width:620px;margin:0 auto;padding:20px 20px 40px;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
+  header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:28px}
+  header img{width:112px;height:auto;display:block}
+  .step-count{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .bar{height:3px;background:var(--line);border-radius:2px;overflow:hidden;margin-bottom:36px}
+  .bar i{display:block;height:100%;width:0;background:var(--gold);transition:width .35s ease}
+  .eyebrow{font-family:'DM Mono',monospace;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0 0 14px}
+  h1,h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:-.015em;margin:0;line-height:1.08}
+  h1{font-size:clamp(36px,9vw,52px)}
+  h2{font-size:clamp(30px,7.5vw,42px)}
+  h1 em,h2 em{color:var(--gold);font-style:italic}
+  .lead{font-size:16.5px;line-height:1.55;color:var(--soft);margin:18px 0 0}
+  .screen{display:none;flex:1;flex-direction:column;animation:in .35s ease}
+  .screen.on{display:flex}
+  @keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .opts{display:flex;flex-direction:column;gap:10px;margin-top:28px}
+  .opt{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);color:var(--cream);border-radius:12px;padding:17px 18px;font:500 16px/1.35 Archivo,Helvetica,Arial,sans-serif;cursor:pointer;transition:border-color .15s,background .15s}
+  .opt:hover{border-color:#6B6355}
+  .opt .dot{flex:none;width:18px;height:18px;border-radius:50%;border:1.5px solid #6B6355}
+  .opt.sel{border-color:var(--gold);background:#2A241B}
+  .opt.sel .dot{border-color:var(--gold);background:radial-gradient(circle,var(--gold) 0 45%,transparent 50%)}
+  .opt small{display:block;font-weight:400;font-size:13.5px;color:var(--muted);margin-top:2px}
+  label.f{display:block;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:22px 0 8px}
+  input.t{width:100%;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;color:var(--cream);font:400 17px Archivo,Helvetica,Arial,sans-serif;outline:none}
+  input.t:focus{border-color:var(--gold)}
+  input.t::placeholder{color:#6B6355}
+  .check{display:flex;gap:12px;align-items:flex-start;margin-top:20px;font-size:14px;line-height:1.5;color:var(--soft);cursor:pointer}
+  .check input{margin-top:3px;width:18px;height:18px;accent-color:var(--gold);flex:none}
+  .err{color:#F0A28A;font-size:14px;margin-top:12px;min-height:20px}
+  .spacer{flex:1;min-height:24px}
+  .nav{display:flex;gap:10px;align-items:center;margin-top:28px}
+  .btn{appearance:none;border:0;border-radius:999px;background:var(--gold);color:#14110D;font:600 16px Archivo,Helvetica,Arial,sans-serif;padding:17px 26px;cursor:pointer;flex:1;transition:opacity .15s}
+  .btn:disabled{opacity:.35;cursor:default}
+  .back{appearance:none;background:none;border:1px solid var(--line);color:var(--soft);border-radius:999px;padding:16px 20px;font:500 15px Archivo,Helvetica,Arial,sans-serif;cursor:pointer}
+  .proofs{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:26px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .proofs span:before{content:"✦ ";color:var(--gold)}
+  .wa{display:block;text-align:center;margin-top:14px;border:1px solid var(--line);border-radius:999px;padding:15px;color:var(--cream);text-decoration:none;font:500 15px Archivo,Helvetica,Arial,sans-serif}
+  .fine{font-size:12.5px;color:#6B6355;margin-top:18px;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="bgimg" aria-hidden="true"></div>
+<div class="bgfade" aria-hidden="true"></div>
+
+<main class="wrap">
+  <header>
+    <img src="logo.webp" alt="Yellowbird">
+    <span class="step-count" id="count" aria-live="polite"></span>
+  </header>
+  <div class="bar" aria-hidden="true"><i id="bar"></i></div>
+
+  <!-- 0. Abertura -->
+  <section class="screen on" data-step="intro">
+    <p class="eyebrow">Banda para casamento no Rio</p>
+    <h1>Vamos montar a <em>trilha da sua festa?</em></h1>
+    <p class="lead">Responda 6 perguntas rápidas. Com elas, o Igor prepara uma proposta pensada para o seu casamento e te chama no WhatsApp.</p>
+    <div class="proofs"><span>Casamentos Awards 2022</span><span>Forte de Copacabana</span><span>Monte Líbano</span></div>
+    <div class="spacer"></div>
+    <div class="nav"><button class="btn" data-go="next">Começar · leva 1 minuto</button></div>
+  </section>
+
+  <!-- 1. Data -->
+  <section class="screen" data-step="q" data-key="quando">
+    <p class="eyebrow">Pergunta 1 de 6</p>
+    <h2>Quando é o <em>grande dia?</em></h2>
+    <div class="opts">
+      <button class="opt" data-v="Nos próximos 6 meses"><span class="dot"></span>Nos próximos 6 meses</button>
+      <button class="opt" data-v="Entre 6 e 12 meses"><span class="dot"></span>Entre 6 e 12 meses</button>
+      <button class="opt" data-v="Daqui a mais de 1 ano"><span class="dot"></span>Daqui a mais de 1 ano</button>
+      <button class="opt" data-v="Ainda sem data"><span class="dot"></span>Ainda não temos data</button>
+    </div>
+    <label class="f" for="data">Se já tiver a data, conta pra gente (opcional)</label>
+    <input class="t" id="data" type="date">
+    <div class="spacer"></div>
+    <div class="nav"><button class="back" data-go="back">Voltar</button><button class="btn" data-go="next" disabled>Continuar</button></div>
+  </section>
+
+  <!-- 2. Local -->
+  <section class="screen" data-step="q" data-key="local" data-text="1">
+    <p class="eyebrow">Pergunta 2 de 6</p>
+    <h2>Onde vai ser <em>a festa?</em></h2>
+    <label class="f" for="local">Nome do espaço ou bairro</label>
+    <input class="t" id="local" type="text" placeholder="Ex.: Forte de Copacabana, Barra, Petrópolis" autocomplete="off">
+    <div class="opts">
+      <button class="opt" data-v="Ainda não definimos"><span class="dot"></span>Ainda não definimos o local</button>
+    </div>
+    <div class="spacer"></div>
+    <div class="nav"><button class="back" data-go="back">Voltar</button><button class="btn" data-go="next" disabled>Continuar</button></div>
+  </section>
+
+  <!-- 3. Convidados -->
+  <section class="screen" data-step="q" data-key="convidados">
+    <p class="eyebrow">Pergunta 3 de 6</p>
+    <h2>Quantos <em>convidados?</em></h2>
+    <div class="opts">
+      <button class="opt" data-v="Até 100"><span class="dot"></span>Até 100</button>
+      <button class="opt" data-v="De 100 a 200"><span class="dot"></span>De 100 a 200</button>
+      <button class="opt" data-v="De 200 a 300"><span class="dot"></span>De 200 a 300</button>
+      <button class="opt" data-v="Mais de 300"><span class="dot"></span>Mais de 300</button>
+    </div>
+    <div class="spacer"></div>
+    <div class="nav"><button class="back" data-go="back">Voltar</button><button class="btn" data-go="next" disabled>Continuar</button></div>
+  </section>
+
+  <!-- 4. Clima -->
+  <section class="screen" data-step="q" data-key="clima">
+    <p class="eyebrow">Pergunta 4 de 6</p>
+    <h2>Qual o <em>clima da festa</em> dos seus sonhos?</h2>
+    <div class="opts">
+      <button class="opt" data-v="Pista cheia até o fim"><span class="dot"></span><span>Pista cheia até o fim<small>Do jantar à última música, todo mundo dançando</small></span></button>
+      <button class="opt" data-v="Elegante com momentos de pista"><span class="dot"></span><span>Elegante, com momentos de pista<small>Clima sofisticado e a pista nas horas certas</small></span></button>
+      <button class="opt" data-v="Ainda decidindo"><span class="dot"></span>Ainda estamos decidindo</button>
+    </div>
+    <div class="spacer"></div>
+    <div class="nav"><button class="back" data-go="back">Voltar</button><button class="btn" data-go="next" disabled>Continuar</button></div>
+  </section>
+
+  <!-- 5. Investimento -->
+  <section class="screen" data-step="q" data-key="investimento">
+    <p class="eyebrow">Pergunta 5 de 6</p>
+    <h2>Quanto vocês pensam em <em>investir na música?</em></h2>
+    <p class="lead">Assim o Igor já te apresenta a formação certa para o seu momento.</p>
+    <div class="opts">
+      <button class="opt" data-v="Até R$ 3 mil" data-faixa="C"><span class="dot"></span>Até R$ 3 mil</button>
+      <button class="opt" data-v="De R$ 3 mil a R$ 5 mil" data-faixa="B"><span class="dot"></span>De R$ 3 mil a R$ 5 mil</button>
+      <button class="opt" data-v="De R$ 5 mil a R$ 8 mil" data-faixa="A"><span class="dot"></span>De R$ 5 mil a R$ 8 mil</button>
+      <button class="opt" data-v="Acima de R$ 8 mil" data-faixa="A"><span class="dot"></span>Acima de R$ 8 mil</button>
+      <button class="opt" data-v="Ainda não sei" data-faixa="B"><span class="dot"></span>Ainda não sabemos</button>
+    </div>
+    <div class="spacer"></div>
+    <div class="nav"><button class="back" data-go="back">Voltar</button><button class="btn" data-go="next" disabled>Continuar</button></div>
+  </section>
+
+  <!-- 6. Contato -->
+  <section class="screen" data-step="contact">
+    <p class="eyebrow">Pergunta 6 de 6</p>
+    <h2>Para quem o Igor <em>manda a proposta?</em></h2>
+    <label class="f" for="nome">Seu nome</label>
+    <input class="t" id="nome" type="text" autocomplete="name" placeholder="Nome e sobrenome">
+    <label class="f" for="whats">Seu WhatsApp</label>
+    <input class="t" id="whats" type="tel" inputmode="tel" autocomplete="tel" placeholder="(21) 99999-9999">
+    <label class="check"><input type="checkbox" id="lgpd"><span>Autorizo a Yellowbird a entrar em contato comigo pelo WhatsApp sobre o meu casamento.</span></label>
+    <div class="err" id="err" role="alert"></div>
+    <div class="spacer"></div>
+    <div class="nav"><button class="back" data-go="back">Voltar</button><button class="btn" id="send" disabled>Receber minha proposta</button></div>
+    <p class="fine">Usamos seus dados só para falar sobre o seu casamento. Nada de spam.</p>
+  </section>
+
+  <!-- 7. Obrigado -->
+  <section class="screen" data-step="done">
+    <p class="eyebrow">Recebido</p>
+    <h2 id="thanks-title">Obrigado! O Igor vai te chamar <em>no WhatsApp.</em></h2>
+    <p class="lead">Ele já está com as suas respostas e vai preparar uma proposta para a sua festa. Fica de olho no celular.</p>
+    <div class="spacer"></div>
+    <a class="wa" id="wa" href="#" target="_blank" rel="noopener">Prefere falar agora? Chamar no WhatsApp</a>
+  </section>
+</main>
+
+<script>
+(function(){
+  var C = window.YB_CONFIG;
+  var screens = [].slice.call(document.querySelectorAll('.screen'));
+  var i = 0, answers = {}, faixa = '';
+  var qTotal = 6;
+
+  // Origem do lead (UTMs e fbclid)
+  var qs = new URLSearchParams(location.search), origem = {};
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'].forEach(function(k){ if(qs.get(k)) origem[k] = qs.get(k); });
+
+  function stepNumber(idx){ return idx <= 0 ? 0 : Math.min(idx, qTotal); }
+  function show(n){
+    screens[i].classList.remove('on');
+    i = n;
+    screens[i].classList.add('on');
+    var s = stepNumber(i), done = screens[i].dataset.step === 'done';
+    document.getElementById('bar').style.width = (done ? 100 : (s / qTotal) * 100) + '%';
+    document.getElementById('count').textContent = (s && !done) ? (s + ' / ' + qTotal) : '';
+    window.scrollTo(0,0);
+    var t = screens[i].querySelector('input.t');
+    if (t && window.matchMedia('(min-width: 700px)').matches) t.focus();
+    if (window.clarity) clarity('set', 'quiz_step', String(s));
+  }
+
+  function refresh(sc){
+    var key = sc.dataset.key, ok = !!answers[key];
+    var nb = sc.querySelector('[data-go="next"]'); if (nb) nb.disabled = !ok;
+  }
+
+  screens.forEach(function(sc){
+    var key = sc.dataset.key;
+    sc.querySelectorAll('.opt').forEach(function(b){
+      b.addEventListener('click', function(){
+        sc.querySelectorAll('.opt').forEach(function(x){ x.classList.remove('sel'); });
+        b.classList.add('sel');
+        answers[key] = b.dataset.v;
+        if (key === 'investimento') faixa = b.dataset.faixa;
+        if (sc.dataset.text){ var inp = sc.querySelector('input.t'); if (inp) inp.value = ''; }
+        refresh(sc);
+        // avança sozinho em perguntas de múltipla escolha simples
+        if (!sc.dataset.text && key !== 'quando') setTimeout(function(){ if (screens[i] === sc) show(i + 1); }, 260);
+      });
+    });
+    if (sc.dataset.text){
+      var inp = sc.querySelector('input.t');
+      inp.addEventListener('input', function(){
+        var v = inp.value.trim();
+        if (v){ sc.querySelectorAll('.opt').forEach(function(x){ x.classList.remove('sel'); }); answers[key] = v; }
+        else if (!sc.querySelector('.opt.sel')) delete answers[key];
+        refresh(sc);
+      });
+    }
+    sc.querySelectorAll('[data-go]').forEach(function(b){
+      b.addEventListener('click', function(){ show(b.dataset.go === 'back' ? Math.max(0, i - 1) : i + 1); });
+    });
+  });
+
+  // Data exata (opcional) na pergunta 1: preencher a data já libera o Continuar
+  var dataInp = document.getElementById('data');
+  dataInp.addEventListener('change', function(){
+    var sc = dataInp.closest('.screen');
+    if (dataInp.value && !answers.quando) answers.quando = 'Data definida';
+    refresh(sc);
+  });
+
+  // Contato
+  var nome = document.getElementById('nome'), whats = document.getElementById('whats'),
+      lgpd = document.getElementById('lgpd'), send = document.getElementById('send'), err = document.getElementById('err');
+  function digits(v){ return (v || '').replace(/\D/g, ''); }
+  whats.addEventListener('input', function(){
+    var d = digits(whats.value).slice(0, 11), o = d;
+    if (d.length > 2) o = '(' + d.slice(0,2) + ') ' + d.slice(2);
+    if (d.length > 7) o = '(' + d.slice(0,2) + ') ' + d.slice(2, d.length - 4) + '-' + d.slice(-4);
+    whats.value = o; check();
+  });
+  function check(){
+    var ok = nome.value.trim().length >= 2 && digits(whats.value).length >= 10 && lgpd.checked;
+    send.disabled = !ok; if (ok) err.textContent = '';
+  }
+  nome.addEventListener('input', check); lgpd.addEventListener('change', check);
+
+  var sent = false;
+  send.addEventListener('click', function(){
+    if (sent) return;
+    var tel = digits(whats.value);
+    if (tel.length < 10){ err.textContent = 'Confere o número do WhatsApp com DDD.'; return; }
+    sent = true; send.disabled = true; send.textContent = 'Enviando...';
+
+    var payload = {
+      nome: nome.value.trim(),
+      whatsapp: tel,
+      quando: answers.quando || '',
+      data: dataInp.value || '',
+      local: answers.local || '',
+      convidados: answers.convidados || '',
+      clima: answers.clima || '',
+      investimento: answers.investimento || '',
+      faixa: faixa || 'B',
+      origem: origem,
+      pagina: location.href.split('?')[0]
+    };
+    var eventId = 'yb' + Date.now() + Math.random().toString(36).slice(2, 8);
+    payload.event_id = eventId;
+
+    // Pixel: Lead para todos, LeadQualificado para faixas A e B
+    try {
+      if (window.fbq){
+        fbq('track', 'Lead', { content_name: 'Quiz Yellowbird', faixa: payload.faixa }, { eventID: eventId });
+        if (payload.faixa === 'A' || payload.faixa === 'B') fbq('trackCustom', 'LeadQualificado', { faixa: payload.faixa }, { eventID: eventId + 'q' });
+      }
+      if (window.clarity){ clarity('set', 'faixa', payload.faixa); clarity('event', 'quiz_concluido'); }
+    } catch(e){}
+
+    function finish(){
+      var quando = payload.data ? 'meu casamento é em ' + payload.data.split('-').reverse().join('/')
+        : (payload.quando === 'Ainda sem data' || !payload.quando) ? 'ainda estamos definindo a data do casamento'
+        : 'meu casamento é ' + payload.quando.toLowerCase();
+      var msg = 'Oi! Acabei de responder o quiz no site da Yellowbird. Sou ' + payload.nome + ' e ' + quando +
+        (payload.local && payload.local !== 'Ainda não definimos' ? ', no ' + payload.local : '') + '.';
+      document.getElementById('wa').href = 'https://wa.me/' + C.WHATSAPP + '?text=' + encodeURIComponent(msg);
+      show(screens.length - 1);
+    }
+
+    if (!C.ENDPOINT){ finish(); return; }
+    var body = JSON.stringify(payload);
+    var done = false; var t = setTimeout(function(){ if (!done){ done = true; finish(); } }, 4000);
+    fetch(C.ENDPOINT, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: body, keepalive: true })
+      .catch(function(){})
+      .then(function(){ if (!done){ done = true; clearTimeout(t); finish(); } });
+  });
+
+  show(0);
+})();
+</script>
+</body>
+</html>
